@@ -1,0 +1,262 @@
+/*
+* @Author: UEK-2016
+* @Date:   2017-11-02 14:34:58
+* @Last Modified by:   UEK-2016
+* @Last Modified time: 2017-11-09 14:36:50
+*/
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    outline: none;
+}
+html{
+    font-size: 100px;
+    width: 100%;
+    height: 100%;
+}
+@media screen and (min-width: 375px){
+    html{
+        font-size: 50px;
+    }
+}
+
+body {
+    height: 100%;
+    height: 100%;
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size:0.14rem;
+    color:#000;
+    margin: 0;
+    padding: 0;
+}
+.swiper-container {
+    width: 100%;
+    height: 3rem;
+} 
+img{width: 100%;height: 100%;}
+
+.btn{
+	width: 100%;
+	height: 1.2rem;
+	background: skyblue;
+
+}
+.wait{
+	width: 2rem;
+	height: 1rem;
+	background: #fff;
+	text-align: center;
+	line-height: 1rem;
+	color: #000;
+	float: left;
+	margin-left: 1rem;
+	margin-top: .1rem;
+	border-radius: .5rem;
+}
+ .wait.active{
+	background: hotpink;
+	color: #fff;
+}
+.done{
+	width: 2rem;
+	height: 1rem;
+	background: #fff;
+	text-align: center;
+	line-height: 1rem;
+	color: #000;
+	float: left;
+	margin-left: .89rem;
+	margin-top: .1rem;
+	border-radius: .5rem;
+}
+.done.active{
+	background: royalblue;
+	color: #fff;
+}
+@font-face {
+    font-family: 'iconfont';  /* project id 456434 */
+    src: url('http://at.alicdn.com/t/font_456434_emhldkf2mvl323xr.eot');
+    src: url('http://at.alicdn.com/t/font_456434_emhldkf2mvl323xr.eot?#iefix') format('embedded-opentype'),
+    url('http://at.alicdn.com/t/font_456434_emhldkf2mvl323xr.woff') format('woff'),
+    url('http://at.alicdn.com/t/font_456434_emhldkf2mvl323xr.ttf') format('truetype'),
+    url('http://at.alicdn.com/t/font_456434_emhldkf2mvl323xr.svg#iconfont') format('svg');
+}
+.iconfont{
+
+    font-family:"iconfont" !important;
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+i{
+    font-family:iconfont ;
+    font-size: 24px;
+    position: absolute;
+    right: .4rem;
+}
+i.active{
+    color: red;
+}
+.trash{
+    font-family:iconfont;
+    font-size: 36px;
+    position: fixed;
+    bottom:80px;
+    right: 40px;
+    z-index: 999;
+    display: none;
+}
+.content{
+    width: 100%;
+    height:calc(100% - 5rem);
+}
+.content ul li{
+    padding: 0 0.2rem;
+    width: 95%;
+    height: 1rem;
+    background: #c8d424;
+    line-height: 1rem;
+    display: flex;
+    color: #fff;
+    margin: 5px 0;
+    position: relative;
+    justify-content:space-around;
+}
+
+.del{
+    position: absolute;
+    width: 2.5rem;
+    height: 100%;
+    background: red;
+    top:0;
+    right:-2.5rem;
+    text-align: center;
+    line-height:1rem;
+    color: #fff;
+    font-size: 0.22rem;
+}
+.finish{
+    position: absolute;
+    width: 2.5rem;
+    height: 100%;
+    background: red;
+    top:0;
+    right:-2.5rem;
+    text-align: center;
+    line-height:1rem;
+    color: #fff;
+    font-size: 0.22rem;
+}
+.mask{
+    width: 100%;
+    height:100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(0,0,0,.4);
+    display: none;
+}
+.mask .edit{
+    width: 5rem;
+    height:5rem;
+    position: absolute;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: none;
+}
+@keyframes show{
+    0%{
+        transform:scale(0.5,0.5);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}
+.show{
+    animation: show .3s linear;
+    display: block !important;
+  }
+#text{
+    padding:10%;
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+}
+#button{
+    width: 75%;
+    height: 20%;
+    position: absolute;
+    background: red;
+    color: #fff;
+    line-height: 25%;
+    text-align: center;
+    border-radius:0.2rem;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: none;
+}
+.showedit{
+    width: 5rem;
+    height: 5rem;
+    background: #fff;
+    border-radius:0.2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: none;
+    font-size: 24px;
+    padding: .2rem;
+    -webkit-text-overflow:ellipsis;
+    /*display: -webkit-box;*/
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+.add{
+    width: 100%;
+    height:1rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: red;
+    font-size: 0.5rem;
+    color: #fff;
+    text-align: center;
+    line-height: 1rem;
+}
+.main{
+    width: 100%;
+    height: 100%;
+}
+#close{
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* background: red; */
+    /* border-radius: 50%; */
+    line-height: 30px;
+    text-align: center;
+    color: red;
+    font-size: 18px;
+}
